@@ -15,11 +15,16 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // Connexion à MongoDB
-const mongoURI = "mongodb+srv://tgatienne:AnnZn0N3K4pSs1yB@gatiennekoliiibritalki.entrtwn.mongodb.net/?retryWrites=true&w=majority&appName=gatiennekoliiibritalki";
+const mongoURI = process.env.MONGODB_URI;
 mongoose.connect(mongoURI).then(
     () => { console.log("Connected to MongoDB"); },
     err => { console.error(`Error connecting to MongoDB: ${err.message}`); }
 );
+
+// Route pour la racine de l'application
+app.get('/', (req, res) => {
+    res.send('Hello World!');
+});
 
 // Définir les questions du quiz
 const quizQuestions = [
