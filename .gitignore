@@ -1,0 +1,23 @@
+.vercel
+# Environnement virtuel
+venv/
+.env
+
+# Dépendances
+node_modules/
+
+# Fichiers de logs
+logs
+*.log
+
+# Fichiers temporaires
+*.tmp
+*.swp
+
+# Système d'exploitation spécifique
+.DS_Store
+Thumbs.db
+
+# Fichiers de sortie
+dist/
+build/
