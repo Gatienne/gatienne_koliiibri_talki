@@ -106,7 +106,7 @@ app.post('/chat', async (req, res) => {
 // Fonction pour traduire le texte en utilisant translate.py
 async function translateText(text, sourceLang, targetLang) {
     return new Promise((resolve, reject) => {
-        const pythonProcess = spawn('python', [path.join(__dirname, 'translate.py')]);
+        const pythonProcess = spawn('python', [path.join(__dirname, 'translate.py')]); // Utiliser Python directement
 
         pythonProcess.stdin.write(JSON.stringify({ text, source_lang: sourceLang, target_lang: targetLang }));
         pythonProcess.stdin.end();
@@ -138,7 +138,7 @@ async function translateText(text, sourceLang, targetLang) {
 // Fonction pour obtenir la réponse de BlenderBot
 async function getBotResponse(inputText) {
     return new Promise((resolve, reject) => {
-        const pythonProcess = spawn('python', [path.join(__dirname, 'blenderbot.py')]);
+        const pythonProcess = spawn('python', [path.join(__dirname, 'blenderbot.py')]); // Utiliser Python directement
 
         pythonProcess.stdin.write(JSON.stringify({ text: inputText }));
         pythonProcess.stdin.end();
