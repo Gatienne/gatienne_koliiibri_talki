@@ -23,7 +23,7 @@ mongoose.connect(mongoURI).then(
 
 // Fonction pour installer les dépendances Python
 function installPythonDependencies() {
-    const dependencies = ['transformers', 'torch', "sacremoses", "sentencepiece,"];
+    const dependencies = ['transformers', 'torch', "sacremoses", "sentencepiece"];
     dependencies.forEach(dep => {
         console.log(`Installing ${dep}...`);
         execSync(`pip install ${dep}`, { stdio: 'inherit' });
