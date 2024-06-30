@@ -40,16 +40,16 @@ def translate(text, source_lang, target_lang):
     return translated_text[0]
 
 if __name__ == "__main__":
-    input_data = json.loads(sys.stdin.read())
-    text = input_data.get('text')
-    source_lang = input_data.get('source_lang')
-    target_lang = input_data.get('target_lang')
-
-    if not text or not source_lang or not target_lang:
-        print(f"Error: Missing 'text', 'source_lang', or 'target_lang' in input data", file=sys.stderr)
-        sys.exit(1)
-
     try:
+        input_data = json.loads(sys.stdin.read())
+        text = input_data.get('text')
+        source_lang = input_data.get('source_lang')
+        target_lang = input_data.get('target_lang')
+
+        if not text or not source_lang or not target_lang:
+            print(f"Error: Missing 'text', 'source_lang', or 'target_lang' in input data", file=sys.stderr)
+            sys.exit(1)
+
         translated_text = translate(text, source_lang, target_lang)
         print(json.dumps({'translation': translated_text}))
     except Exception as e:

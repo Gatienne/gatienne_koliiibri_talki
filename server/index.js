@@ -81,12 +81,15 @@ app.post('/chat', async (req, res) => {
     try {
         // Traduire le message de l'utilisateur en allemand
         const userTranslation = await translateText(text, sourceLang, targetLang);
+        console.log('User translation:', userTranslation);
 
         // Utiliser BlenderBot pour générer une réponse dans la langue de l'utilisateur
         const botResponse = await getBotResponse(text);
+        console.log('Bot response:', botResponse);
 
         // Traduire la réponse du bot en allemand
         const botTranslation = await translateText(botResponse, sourceLang, targetLang);
+        console.log('Bot translation:', botTranslation);
 
         res.json({
             userMessage: text,
