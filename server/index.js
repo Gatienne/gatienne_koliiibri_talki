@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // Connexion à MongoDB
-const mongoURI = process.env.MONGODB_URI;
+const mongoURI = "mongodb+srv://tgatienne:AnnZn0N3K4pSs1yB@gatiennekoliiibritalki.entrtwn.mongodb.net/?retryWrites=true&w=majority&appName=gatiennekoliiibritalki";
 mongoose.connect(mongoURI).then(
     () => { console.log("Connected to MongoDB"); },
     err => { console.error(`Error connecting to MongoDB: ${err.message}`); }
