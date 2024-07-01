@@ -25,7 +25,6 @@ def translate(text, source_lang, target_lang):
         ('de', 'en'): 'Helsinki-NLP/opus-mt-de-en',
         ('de', 'fr'): 'Helsinki-NLP/opus-mt-de-fr',
         ('de', 'es'): 'Helsinki-NLP/opus-mt-de-es',
-        # Ajouter d'autres correspondances si nécessaire
     }
 
     model_name = model_name_map.get((source_lang, target_lang))

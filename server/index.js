@@ -141,8 +141,12 @@ async function translateText(text, sourceLang, targetLang) {
                     reject('Error parsing translation response: ' + err.toString());
                 }
             } else {
-                reject('Translation script exited with code ' + code);
+                reject('Translation script exited with code ' + code + ' and data: ' + dataBuffer);
             }
+        });
+
+        pythonProcess.on('error', (err) => {
+            reject('Failed to start subprocess: ' + err.toString());
         });
     });
 }
@@ -173,8 +177,12 @@ async function getBotResponse(inputText) {
                     reject('Error parsing BlenderBot response: ' + err.toString());
                 }
             } else {
-                reject('BlenderBot script exited with code ' + code);
+                reject('BlenderBot script exited with code ' + code + ' and data: ' + dataBuffer);
             }
+        });
+
+        pythonProcess.on('error', (err) => {
+            reject('Failed to start subprocess: ' + err.toString());
         });
     });
 }
